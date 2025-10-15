@@ -124,12 +124,9 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # ------------------------------------------------------------
 # CORS SETTINGS
 # ------------------------------------------------------------
-CORS_ALLOWED_ORIGINS = [
-    "https://react-django-todo-list.vercel.app",  # update with your deployed frontend URL
-]
 
 # Or during development:
-CORS_ALLOW_ALL_ORIGINS = DEBUG
+CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_CREDENTIALS = True
 
