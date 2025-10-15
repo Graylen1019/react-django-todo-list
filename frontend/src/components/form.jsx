@@ -1,10 +1,10 @@
-import "../styles/form.css"
+import "../styles/form.css";
 
 import { useState } from "react";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
-
+import { LoadingIndicator } from "./loading-indicator";
 
 export const Form = ({ route, method }) => {
   const [username, setUsername] = useState("");
@@ -23,9 +23,9 @@ export const Form = ({ route, method }) => {
       if (method === "login") {
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-        navigate('/')
+        navigate("/");
       } else {
-        navigate('/login')
+        navigate("/login");
       }
     } catch (error) {
       alert(error);
@@ -52,7 +52,7 @@ export const Form = ({ route, method }) => {
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
       />
-
+      {loading && <LoadingIndicator />}
       <button className="form-button" type="submit">
         {name}
       </button>
